@@ -1,3 +1,8 @@
+//1. Listener nasłuchuje na zamiany w inpucie
+//2.e.target wskazuje na input.e.target.value wskazuje  na wartość inputa czyli tekst, który wspisujemy
+//3. Zmienna li przechowuje wszystkie napoje
+//4. el odnosi się do kazdego <li> na liscie
+
 const search = document.querySelector(".search");
 const li = document.querySelectorAll("li");
 
@@ -6,11 +11,12 @@ const searchEngine = e => {
 	const text = e.target.value.toLowerCase();
 
 	//odwolanie sie do wszystkich elementow li za pomoca petli forEach:
-	li.forEach(el => { //el jak element, ale może być dowolna nazwa
+	li.forEach(el => {
+		//el jak element, ale może być dowolna nazwa
 
-        const task = el.textContent //text wpisany w inpucie w zamiennej task
-		if (task.toLowerCase().indexOf(text) !== -1) {//przeszukanie w inpucie indexOf, zamiana potencjalnej wielkiej litery na małą
-			
+		if (el.textContent.toLowerCase().indexOf(text) !== -1) {
+			//przeszukanie w inpucie indexOf, zamiana potencjalnej wpisanej w wyszukiwarce wielkiej litery na małą
+
 			el.style.display = "block";
 		} else {
 			el.style.display = "none";
